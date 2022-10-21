@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
-import mapData from "./../Data/countries.json";
+import mapData from "./../Data/my-point.json";
 import "leaflet/dist/leaflet.css";
 import "./MyMap.css";
 
@@ -15,7 +15,7 @@ class MyMap extends Component {
         fillColor : "red",
         fillOpacity : 0.1,
         color : "black",
-        weight : 2,
+        weight : 25,
     };
 
 

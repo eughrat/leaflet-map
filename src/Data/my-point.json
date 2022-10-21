@@ -1,0 +1,21 @@
+{
+    "type": "FeatureCollection",
+    "name": "parking_areas",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 99999,
+                "name": "Kupa",
+                "address": "Dupa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.3919,
+                    18.5731
+                ]
+            }
+        }
+    ]
+}
