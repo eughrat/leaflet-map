@@ -8,8 +8,7 @@ class MyMap extends Component {
     state = {}
 
     componentDidMount(){
-        const countryName = country.properties.ADMIN;
-        console.log(countryName);
+        console.log(mapData);
     }
 
     countryStyle = {
@@ -19,8 +18,33 @@ class MyMap extends Component {
         weight : 2,
     };
 
+
+    onCountryClick = (event) => {
+        console.log('Clicked')
+    };
+
+    onCoutryMouseOver = (event) => {
+        event.target.setStyle(
+            {
+                color: "green",
+                fillColor: "yellow",
+                fillOpacity: 0.1,
+            }
+        )
+    };
+
     onEachCountry = (country, layer) => {
-        console.log(country.properties.ADMIN);
+        const countryName = country.properties.ADMIN;
+        console.log(countryName);
+        layer.bindPopup(countryName);
+
+        layer.options.fillOpacity = Math.random();
+
+
+        layer.on({
+            click: this.onCountryClick,
+            mouseover: this.onCoutryMouseOver,
+        });
     };
 
     render() {
@@ -30,7 +54,7 @@ class MyMap extends Component {
                 My Map
             </h1>
             <MapContainer style = {{height: "80vh"}} zoom = {5} center = {[20,100]}>
-                <GeoJSON style = { this.countryStyle } data = {mapData.features} onEachFeature = {this.OnEachCountry}></GeoJSON>
+                <GeoJSON style = { this.countryStyle } data = {mapData.features} onEachFeature = {this.onEachCountry}></GeoJSON>
             </MapContainer>
         </div>
         );
